@@ -1,0 +1,7 @@
+== To make this (more) useful:
+
+* Find a way to return the actual value for the last call in a method chain
+
+* Find a compromise solution for getting config elements that share a method name with something in the class hierarchy
+
+
