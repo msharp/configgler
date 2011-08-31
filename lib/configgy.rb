@@ -46,7 +46,12 @@ class Configgy
         end
 
         def method_missing(name)
-            ConfigElement.new(@element,name.to_s)
+            el = ConfigElement.new(@element,name.to_s)
+            if el.is_a?(Hash)
+               el 
+            else
+                el.value
+            end
         end
 
         def value
