@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "yaml"
+  s.add_development_dependency "rspec"
 end

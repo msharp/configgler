@@ -12,16 +12,22 @@ TODO : handle existing object methods (type,id,class)
 require "configgy/version"
 require 'yaml'
 
-class Configgy
+class Configgler
     
     attr_accessor :config
 
     def initialize(file,*args)
-        @config = YAML.load(File.new(File.join(args.join(','),file)))
+        @config = YAML.load(File.new(File.join(args.flatten.join(','),file)))
     end
 
+
     def method_missing(name,*args)
-        ConfigElement.new(@config,name) 
+        el = ConfigElement.new(@config,name.to_s)
+        if el.is_a?(Hash)
+           el 
+        else
+           el.value
+        end
     end
 
     def get_by_array(args=[])
