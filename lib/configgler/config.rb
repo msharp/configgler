@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Configgy
+module Configgler
 
     class Config
         
