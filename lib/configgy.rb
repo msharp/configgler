@@ -8,13 +8,11 @@ OR
     puts c.get(:smtp,:host)
 TODO : handle existing object methods (type,id,class)
 """
-
-require "configgy/version"
-require "configgy/config"
-require 'yaml'
-
 module Configgy
     
+    require "configgy/version"
+    require "configgy/config"
+
     def self.load(file,*args)
         Config.new(file,args)
     end

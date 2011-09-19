@@ -1,4 +1,5 @@
-require 'lib/configgy'
+$:.unshift '../lib/' 
+require 'configgy'
 
 describe Configgy do 
 

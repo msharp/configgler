@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Configgy
 
     class Config
@@ -7,7 +9,6 @@ module Configgy
         def initialize(file,*args)
             @config = YAML.load(File.new(File.join(args.flatten.join(','),file)))
         end
-
 
         def method_missing(name,*args)
             el = ConfigElement.new(@config,name.to_s)
