@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "configgy/version"
+require "configgler/version"
 
 Gem::Specification.new do |s|
-  s.name        = "configgy"
-  s.version     = Configgy::VERSION
+  s.name        = "configgler"
+  s.version     = Configgler::VERSION
   s.authors     = ["max sharples"]
   s.email       = ["maxsharples@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/msharp/configgler"
   s.summary     = %q{Idiomatic access to yaml configuration files}
   s.description = %q{Get data from your config files in different ways}
 
