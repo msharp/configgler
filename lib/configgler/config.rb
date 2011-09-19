@@ -12,7 +12,7 @@ module Configgler
 
         def method_missing(name,*args)
             el = ConfigElement.new(@config,name.to_s)
-            el.is_a?(Hash) ? el : el.value
+            el.element.is_a?(Hash) ? el : el.value
         end
 
         def get_by_array(args=[])
@@ -38,9 +38,9 @@ module Configgler
 
             def method_missing(name)
                 el = ConfigElement.new(@element,name.to_s)
-                el.is_a?(Hash) ? el : el.value
+                el.element.is_a?(Hash) ? el : el.element
             end
-
+           
             def value
                 @element
             end
