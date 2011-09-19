@@ -7,16 +7,12 @@ module Configgler
         attr_accessor :config
 
         def initialize(file,*args)
-            @config = YAML.load(File.new(File.join(args.flatten.join(','),file)))
+            @config = YAML.load(File.new(File.join(args.flatten.join('/'),file)))
         end
 
         def method_missing(name,*args)
             el = ConfigElement.new(@config,name.to_s)
-            if el.is_a?(Hash)
-               el 
-            else
-               el.value
-            end
+            el.is_a?(Hash) ? el : el.value
         end
 
         def get_by_array(args=[])
@@ -42,11 +38,7 @@ module Configgler
 
             def method_missing(name)
                 el = ConfigElement.new(@element,name.to_s)
-                if el.is_a?(Hash)
-                   el 
-                else
-                    el.value
-                end
+                el.is_a?(Hash) ? el : el.value
             end
 
             def value
