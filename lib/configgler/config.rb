@@ -36,13 +36,29 @@ module Configgler
                 self
             end
 
-            def method_missing(name)
+            def method_missing(name,*args)
                 el = ConfigElement.new(@element,name.to_s)
-                el.element.is_a?(Hash) ? el : el.element
+                if el.element.is_a?(Hash) 
+                    args.length > 0 ? get_by_array(args,el.element) : el 
+                else
+                    el.element
+                end
             end
            
             def value
                 @element
+            end
+        
+            def get_by_array(args)
+                c = @element[args.shift.to_s] 
+                until args.length == 0 
+                    c = c[args.shift.to_s]
+                end
+                c
+            end
+
+            def get(*args)
+                get_by_array(args)
             end
 
         end
